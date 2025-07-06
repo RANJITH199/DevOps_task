@@ -1,11 +1,11 @@
 # Local Deployment Guide
 
-This guide walks through the steps to deploy the source code locally using PowerShell and Docker.
+Steps to deploy the source code locally using PowerShell and Docker.
 
 ## Prerequisites
 - Docker installed
 - PowerShell
-- .NET SDK (if applicable to your project)
+- .NET SDK 3.1
 
 ## Deployment Steps
 
@@ -25,7 +25,9 @@ The script will:
 2.	Build and test the project
 3.	Build the Docker image using the Dockerfile
 4.	Create and start containers using docker-compose
+
  ## Verify Deployment
+
 Check running containers:
 docker ps
 Access your application at the localhost URL shown in the VS Code terminal.
@@ -35,10 +37,14 @@ To apply code or configuration changes:
 1.	Stop existing containers:
 
 docker-compose down
+
 2.	Make your changes
 3.	Re-run the deployment script:
+
 .\deploy.ps1
+
 ## Docker Optimization
+
 The Dockerfile uses multi-stage builds to:
 •	Keep the final image size small
 •	Separate build dependencies from runtime
